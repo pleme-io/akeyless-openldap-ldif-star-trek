@@ -1,4 +1,4 @@
-# akeyless-openldap-ldif-star-trek
+# Akeyless OpenLDAP LDIF of Star Trek
 Repo to store a configured OpenLDAP LDIF file to use to demonstrate LDAP importing
 
 ## Admin User
