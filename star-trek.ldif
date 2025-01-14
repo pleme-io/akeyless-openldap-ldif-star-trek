@@ -1,25 +1,21 @@
-# Base Organization
 dn: dc=starfleet,dc=federation,dc=org
 objectClass: dcObject
 objectClass: organization
 dc: starfleet
 o: Starfleet Command
 
-# Admin User
 dn: cn=admin,dc=starfleet,dc=federation,dc=org
 objectClass: simpleSecurityObject
 objectClass: organizationalRole
 cn: admin
 description: LDAP administrator
-userPassword: {SSHA}/ESWW1IK0JxEzzKjxgqKXWJxXI8y7tRQ
+userPassword: {SSHA}yM3amWRcPG45QGqFqHDjYPZzQ0Md4+8p
 
-# Manager group for admin access
 dn: cn=Manager,dc=starfleet,dc=federation,dc=org
 objectClass: groupOfNames
 cn: Manager
 member: cn=admin,dc=starfleet,dc=federation,dc=org
 
-# Organizational Units
 dn: ou=Enterprise,dc=starfleet,dc=federation,dc=org
 objectClass: organizationalUnit
 ou: Enterprise
@@ -32,7 +28,6 @@ dn: ou=Voyager,dc=starfleet,dc=federation,dc=org
 objectClass: organizationalUnit
 ou: Voyager
 
-# Enterprise Groups
 dn: cn=Enterprise Command,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 objectClass: groupOfNames
 cn: Enterprise Command
@@ -41,13 +36,6 @@ member: uid=riker,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 member: uid=troi,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 member: uid=data,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 
-dn: cn=Enterprise Passenger,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-objectClass: groupOfNames
-cn: Enterprise Passenger
-member: uid=guinan,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-member: uid=lwaxana,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-member: uid=alexander,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-member: uid=keiko,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 dn: cn=Enterprise Security,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 objectClass: groupOfNames
 cn: Enterprise Security
@@ -67,7 +55,14 @@ cn: Enterprise Medical
 member: uid=crusher,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 member: uid=pulaski,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 
-# DS9 Groups
+dn: cn=Enterprise Passenger,ou=Enterprise,dc=starfleet,dc=federation,dc=org
+objectClass: groupOfNames
+cn: Enterprise Passenger
+member: uid=guinan,ou=Enterprise,dc=starfleet,dc=federation,dc=org
+member: uid=lwaxana,ou=Enterprise,dc=starfleet,dc=federation,dc=org
+member: uid=alexander,ou=Enterprise,dc=starfleet,dc=federation,dc=org
+member: uid=keiko,ou=Enterprise,dc=starfleet,dc=federation,dc=org
+
 dn: cn=DS9 Command,ou=DS9,dc=starfleet,dc=federation,dc=org
 objectClass: groupOfNames
 cn: DS9 Command
@@ -76,16 +71,6 @@ member: uid=kira,ou=DS9,dc=starfleet,dc=federation,dc=org
 member: uid=dax,ou=DS9,dc=starfleet,dc=federation,dc=org
 member: uid=worf,ou=DS9,dc=starfleet,dc=federation,dc=org
 
-dn: cn=DS9 Passenger,ou=DS9,dc=starfleet,dc=federation,dc=org
-objectClass: groupOfNames
-cn: DS9 Passenger
-member: uid=quark,ou=DS9,dc=starfleet,dc=federation,dc=org
-member: uid=rom,ou=DS9,dc=starfleet,dc=federation,dc=org
-member: uid=nog,ou=DS9,dc=starfleet,dc=federation,dc=org
-member: uid=garak,ou=DS9,dc=starfleet,dc=federation,dc=org
-member: uid=jake,ou=DS9,dc=starfleet,dc=federation,dc=org
-member: uid=leeta,ou=DS9,dc=starfleet,dc=federation,dc=org
-member: uid=morn,ou=DS9,dc=starfleet,dc=federation,dc=org
 dn: cn=DS9 Security,ou=DS9,dc=starfleet,dc=federation,dc=org
 objectClass: groupOfNames
 cn: DS9 Security
@@ -102,7 +87,17 @@ objectClass: groupOfNames
 cn: DS9 Medical
 member: uid=bashir,ou=DS9,dc=starfleet,dc=federation,dc=org
 
-# Voyager Groups
+dn: cn=DS9 Passenger,ou=DS9,dc=starfleet,dc=federation,dc=org
+objectClass: groupOfNames
+cn: DS9 Passenger
+member: uid=quark,ou=DS9,dc=starfleet,dc=federation,dc=org
+member: uid=rom,ou=DS9,dc=starfleet,dc=federation,dc=org
+member: uid=nog,ou=DS9,dc=starfleet,dc=federation,dc=org
+member: uid=garak,ou=DS9,dc=starfleet,dc=federation,dc=org
+member: uid=jake,ou=DS9,dc=starfleet,dc=federation,dc=org
+member: uid=leeta,ou=DS9,dc=starfleet,dc=federation,dc=org
+member: uid=morn,ou=DS9,dc=starfleet,dc=federation,dc=org
+
 dn: cn=Voyager Command,ou=Voyager,dc=starfleet,dc=federation,dc=org
 objectClass: groupOfNames
 cn: Voyager Command
@@ -111,12 +106,6 @@ member: uid=chakotay,ou=Voyager,dc=starfleet,dc=federation,dc=org
 member: uid=tuvok,ou=Voyager,dc=starfleet,dc=federation,dc=org
 member: uid=kim,ou=Voyager,dc=starfleet,dc=federation,dc=org
 
-dn: cn=Voyager Passenger,ou=Voyager,dc=starfleet,dc=federation,dc=org
-objectClass: groupOfNames
-cn: Voyager Passenger
-member: uid=neelix,ou=Voyager,dc=starfleet,dc=federation,dc=org
-member: uid=kes,ou=Voyager,dc=starfleet,dc=federation,dc=org
-member: uid=naomi,ou=Voyager,dc=starfleet,dc=federation,dc=org
 dn: cn=Voyager Security,ou=Voyager,dc=starfleet,dc=federation,dc=org
 objectClass: groupOfNames
 cn: Voyager Security
@@ -133,60 +122,13 @@ objectClass: groupOfNames
 cn: Voyager Medical
 member: uid=doctor,ou=Voyager,dc=starfleet,dc=federation,dc=org
 
-# Enterprise Users
-dn: uid=data,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: data
-cn: Data
-sn: Data
-title: Lieutenant Commander
-mail: data@enterprise.starfleet.federation.org
-userPassword: {SSHA}makeityourself
+dn: cn=Voyager Passenger,ou=Voyager,dc=starfleet,dc=federation,dc=org
+objectClass: groupOfNames
+cn: Voyager Passenger
+member: uid=neelix,ou=Voyager,dc=starfleet,dc=federation,dc=org
+member: uid=kes,ou=Voyager,dc=starfleet,dc=federation,dc=org
+member: uid=naomi,ou=Voyager,dc=starfleet,dc=federation,dc=org
 
-dn: uid=troi,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: troi
-cn: Deanna Troi
-sn: Troi
-title: Commander
-mail: troi@enterprise.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=guinan,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: guinan
-cn: Guinan
-sn: Guinan
-title: Ten Forward Host
-mail: guinan@enterprise.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=lwaxana,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: lwaxana
-cn: Lwaxana Troi
-sn: Troi
-title: Betazoid Ambassador
-mail: lwaxana@enterprise.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=alexander,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: alexander
-cn: Alexander Rozhenko
-sn: Rozhenko
-title: Civilian
-mail: alexander@enterprise.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=keiko,ou=Enterprise,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: keiko
-cn: Keiko O'Brien
-sn: O'Brien
-title: Botanist
-mail: keiko@enterprise.starfleet.federation.org
-userPassword: {SSHA}makeityourself
 dn: uid=picard,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 objectClass: inetOrgPerson
 uid: picard
@@ -203,6 +145,15 @@ cn: William Riker
 sn: Riker
 title: Commander
 mail: riker@enterprise.starfleet.federation.org
+userPassword: {SSHA}makeityourself
+
+dn: uid=data,ou=Enterprise,dc=starfleet,dc=federation,dc=org
+objectClass: inetOrgPerson
+uid: data
+cn: Data
+sn: Data
+title: Lieutenant Commander
+mail: data@enterprise.starfleet.federation.org
 userPassword: {SSHA}makeityourself
 
 dn: uid=worf,ou=Enterprise,dc=starfleet,dc=federation,dc=org
@@ -223,69 +174,33 @@ title: Lieutenant Commander
 mail: geordi@enterprise.starfleet.federation.org
 userPassword: {SSHA}makeityourself
 
-# DS9 Users
-dn: uid=dax,ou=DS9,dc=starfleet,dc=federation,dc=org
+dn: uid=troi,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 objectClass: inetOrgPerson
-uid: dax
-cn: Jadzia Dax
-sn: Dax
-title: Lieutenant Commander
-mail: dax@ds9.starfleet.federation.org
+uid: troi
+cn: Deanna Troi
+sn: Troi
+title: Commander
+mail: troi@enterprise.starfleet.federation.org
 userPassword: {SSHA}makeityourself
 
-dn: uid=quark,ou=DS9,dc=starfleet,dc=federation,dc=org
+dn: uid=crusher,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 objectClass: inetOrgPerson
-uid: quark
-cn: Quark
-sn: Quark
-title: Bar Owner
-mail: quark@ds9.starfleet.federation.org
+uid: crusher
+cn: Beverly Crusher
+sn: Crusher
+title: Chief Medical Officer
+mail: crusher@enterprise.starfleet.federation.org
 userPassword: {SSHA}makeityourself
 
-dn: uid=garak,ou=DS9,dc=starfleet,dc=federation,dc=org
+dn: uid=guinan,ou=Enterprise,dc=starfleet,dc=federation,dc=org
 objectClass: inetOrgPerson
-uid: garak
-cn: Elim Garak
-sn: Garak
-title: Tailor
-mail: garak@ds9.starfleet.federation.org
+uid: guinan
+cn: Guinan
+sn: Guinan
+title: Ten Forward Host
+mail: guinan@enterprise.starfleet.federation.org
 userPassword: {SSHA}makeityourself
 
-dn: uid=jake,ou=DS9,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: jake
-cn: Jake Sisko
-sn: Sisko
-title: Journalist
-mail: jake@ds9.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=nog,ou=DS9,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: nog
-cn: Nog
-sn: Nog
-title: Civilian
-mail: nog@ds9.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=leeta,ou=DS9,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: leeta
-cn: Leeta
-sn: Leeta
-title: Dabo Girl
-mail: leeta@ds9.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=morn,ou=DS9,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: morn
-cn: Morn
-sn: Morn
-title: Bar Patron
-mail: morn@ds9.starfleet.federation.org
-userPassword: {SSHA}makeityourself
 dn: uid=sisko,ou=DS9,dc=starfleet,dc=federation,dc=org
 objectClass: inetOrgPerson
 uid: sisko
@@ -304,6 +219,15 @@ title: Major
 mail: kira@ds9.starfleet.federation.org
 userPassword: {SSHA}makeityourself
 
+dn: uid=dax,ou=DS9,dc=starfleet,dc=federation,dc=org
+objectClass: inetOrgPerson
+uid: dax
+cn: Jadzia Dax
+sn: Dax
+title: Lieutenant Commander
+mail: dax@ds9.starfleet.federation.org
+userPassword: {SSHA}makeityourself
+
 dn: uid=odo,ou=DS9,dc=starfleet,dc=federation,dc=org
 objectClass: inetOrgPerson
 uid: odo
@@ -313,42 +237,6 @@ title: Chief of Security
 mail: odo@ds9.starfleet.federation.org
 userPassword: {SSHA}makeityourself
 
-# Voyager Users
-dn: uid=kim,ou=Voyager,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: kim
-cn: Harry Kim
-sn: Kim
-title: Ensign
-mail: kim@voyager.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=neelix,ou=Voyager,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: neelix
-cn: Neelix
-sn: Neelix
-title: Morale Officer
-mail: neelix@voyager.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=kes,ou=Voyager,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: kes
-cn: Kes
-sn: Kes
-title: Medical Assistant
-mail: kes@voyager.starfleet.federation.org
-userPassword: {SSHA}makeityourself
-
-dn: uid=naomi,ou=Voyager,dc=starfleet,dc=federation,dc=org
-objectClass: inetOrgPerson
-uid: naomi
-cn: Naomi Wildman
-sn: Wildman
-title: Captain's Assistant
-mail: naomi@voyager.starfleet.federation.org
-userPassword: {SSHA}makeityourself
 dn: uid=janeway,ou=Voyager,dc=starfleet,dc=federation,dc=org
 objectClass: inetOrgPerson
 uid: janeway
@@ -383,4 +271,22 @@ cn: B'Elanna Torres
 sn: Torres
 title: Lieutenant
 mail: torres@voyager.starfleet.federation.org
+userPassword: {SSHA}makeityourself
+
+dn: uid=seven,ou=Voyager,dc=starfleet,dc=federation,dc=org
+objectClass: inetOrgPerson
+uid: seven
+cn: Seven of Nine
+sn: Hansen
+title: Astrometrics Officer
+mail: seven@voyager.starfleet.federation.org
+userPassword: {SSHA}makeityourself
+
+dn: uid=doctor,ou=Voyager,dc=starfleet,dc=federation,dc=org
+objectClass: inetOrgPerson
+uid: doctor
+cn: Emergency Medical Hologram
+sn: Doctor
+title: Chief Medical Officer
+mail: doctor@voyager.starfleet.federation.org
 userPassword: {SSHA}makeityourself
