@@ -11,7 +11,7 @@ objectClass: simpleSecurityObject
 objectClass: organizationalRole
 cn: admin
 description: LDAP administrator
-userPassword: {SSHA}makeityourself
+userPassword: {SSHA}/ESWW1IK0JxEzzKjxgqKXWJxXI8y7tRQ
 
 # Manager group for admin access
 dn: cn=Manager,dc=starfleet,dc=federation,dc=org
