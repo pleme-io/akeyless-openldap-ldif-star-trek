@@ -12,7 +12,7 @@ Setup the directory structure and download the
 ```bash
 mkdir -p ldap/data
 mkdir -p ldap/config
-mkdir -p ldif
+mkdir -p ldif && curl -f -L -o ldif/startrek.ldif --create-dirs --retry 3 --retry-delay 2 --retry-max-time 30 -H "Accept: application/vnd.github.raw" "https://raw.githubusercontent.com/akeyless-community/akeyless-openldap-ldif-star-trek/refs/heads/main/star-trek.ldif"
 ```
 
 Here is an exmaple Docker Compose file
