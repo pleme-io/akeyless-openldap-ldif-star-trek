@@ -18,22 +18,23 @@ mkdir -p ldif && curl -f -L -o ldif/startrek.ldif --create-dirs --retry 3 --retr
 Here is an exmaple Docker Compose file
 
 ```yaml
-version: '3'
 services:
   openldap:
-    image: osixia/openldap:latest
+    image: bitnami/openldap:latest
     container_name: openldap
     environment:
       LDAP_ORGANISATION: "Starfleet Command"
       LDAP_DOMAIN: "starfleet.federation.org"
+      LDAP_ADMIN_USERNAME: "admin"
       LDAP_ADMIN_PASSWORD: "live long and prosper"
+      LDAP_CUSTOM_LDIF_DIR: /ldifs
+      LDAP_ROOT: dc=starfleet,dc=federation,dc=org
+      BITNAMI_DEBUG: "true"
     ports:
-      - "389:389"
-      - "636:636"
+      - "1389:1389"
+      - "1636:1636"
     volumes:
-      - ./ldap/data:/var/lib/ldap
-      - ./ldap/config:/etc/ldap/slapd.d
-      - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+      - ./ldif/startrek.ldif:/ldifs/startrek.ldif
 
   phpldapadmin:
     image: osixia/phpldapadmin:latest
